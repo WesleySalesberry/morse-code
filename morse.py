@@ -27,29 +27,29 @@ def decode_bits(bits):
 # challenge = "- .... .. ... / .. ... / .- / ... .. -- .--. .-.. . --..-- / -.-- . - / -.-. .... .- .-.. .-.. . -. --. .. -. --. / -.-. .- -.-. .... . .-.-.-"
 
 
-# def decode_morse(morse):
-#     morse_list = morse.split('   ')
-#     letters = []
-#     for element in morse_list:
-#         chars = element.split(' ')
-#         for char in chars:
-#             for key, value in MORSE_2_ASCII.items():
-#                 if char == key:
-#                     letters.append(value)
-#         letters.append(' ')
-#     print(''.join(letters))
-#     return ''.join(letters)
-
 def decode_morse(morse):
-    morse_list = re.split(r'(\S+)', morse.strip())
-    results = ''
-    for element in morse_list:
-        if MORSE_2_ASCII.get(element):
-            results += MORSE_2_ASCII.get(element)
-        else:
-            results += " "
-    print(results)
-    return results
+    # your code here
+    morse_decode = []
+    code_split_words = morse.strip().split("   ")
+    for word in code_split_words:
+        word_split_chars = word.split(' ')
+        new_word = []
+        for char in word_split_chars:
+            new_word.append(MORSE_2_ASCII[char])
+        morse_decode.append(''.join(new_word))
+    return ' '.join(morse_decode)
+
+
+# def decode_morse(morse):
+#     morse_list = re.split(r'(\S+)', morse.strip())
+#     results = ''
+#     for element in morse_list:
+#         if MORSE_2_ASCII.get(element):
+#             results += MORSE_2_ASCII.get(element)
+#         else:
+#             results += " "
+#     print(results)
+#     return results
 
 
 if __name__ == '__main__':
